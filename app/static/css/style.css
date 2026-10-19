@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sansation:wght@300;400;700&display=swap');
+
 :root {
     --navy: #092f68;
     --blue: #2196F3;
@@ -7,85 +8,164 @@
 
     --black: #070707;
     --white: #F0F0F0;
+    --grayish: #e2e2e2;
 }
+
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
+
 header {
     width: 100%;
+    height: 125px;
     background-color: var(--navy);
     color: var(--sky_blue);
-    height: 125px;
+
     display: flex;
     justify-content: center;
-}   
+}
+
 .header_container {
-    width: 80%;
+    width: 90%;
+    max-width: 1600px;
+    height: 100%;
+
     display: flex;
-    height: 125px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
 }
-.logo_link_container {
-    width: fit-content;
-    text-decoration: none;
-    cursor: pointer;
-    color: inherit;
-}
-.logo_link_container:any-link {
-    text-decoration: none;
-}
+
 .logo {
     display: flex;
     flex-direction: column;
-    text-align: left;
-    font-family: "Sansation";
-    width: 50%;
+    justify-content: center;
+    flex-shrink: 0;
+
+    font-family: "Sansation", sans-serif;
     font-size: 72px;
-    font-weight: bolder;
-    justify-content: center;  
+    font-weight: 700;
+    text-align: left;
 }
+
+.logo_link_container {
+    display: block;
+    width: fit-content;
+
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.logo_link_container:any-link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.logo_text {
+    line-height: 1;
+}
+
 .logo_vuln {
     color: var(--light_blue);
 }
+
 .slogan {
-    padding-left:161px;
+    padding-left: 161px;
     font-size: 24px;
+    font-weight: 400;
+    line-height: 1.2;
 }
+
 .navigation {
-    width: 50%;
     display: flex;
     align-items: center;
-    font-family: "Sansation";
-    justify-content: space-around;
+    justify-content: flex-end;
+    flex: 1;
+    min-width: 0;
+
+    font-family: "Sansation", sans-serif;
 }
-.navigation a:any-link {
+
+.navigation nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 30px;
+
+    width: 100%;
+}
+
+.navigation nav a:not(.account_nav) {
+    display: inline-block;
+    position: relative;
+    flex-shrink: 0;
+
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 1.2;
+    white-space: nowrap;
+
     color: var(--white);
     text-decoration: none;
 }
-.navigation nav {
-    display: flex;
-    justify-content: space-around;
+
+.navigation nav a:not(.account_nav)::after {
+    content: '';
+    position: absolute;
+
     width: 100%;
-    font-size: 24px;
+    height: 2px;
+
+    background-color: var(--white);
+
+    bottom: -5px;
+    left: 0;
+
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.2s ease-out;
 }
-.navigation nav a {
-  font-size: 32px;
-  color: var(--white);
-  position: relative;
-  display: inline-block;
+
+.navigation nav a:not(.account_nav):hover::after {
+    transform: scaleX(1);
 }
-.navigation nav a::after{
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 2px;
-  background: var(--white);
-  bottom: -5px;
-  left: 0;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.2s ease-out;
+
+.navigation nav a.account_nav {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    margin-left: 15px;
+    padding: 8px 12px;
+
+    background-color: var(--white);
+    color: var(--navy);
+
+    border-radius: 12px;
+
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.2;
+    white-space: nowrap;
+    text-decoration: none;
+
+    transition: background-color 0.2s ease;
 }
-.navigation nav a:hover::after {
-  transform: scaleX(1);
+
+.navigation nav a.account_nav:visited {
+    color: var(--navy);
+}
+
+.navigation nav a.account_nav:hover {
+    background-color: var(--light_blue);
+}
+
+footer {
+    height: 250px;
+    background-color: var(--grayish);
+    width: 100%;
 }
